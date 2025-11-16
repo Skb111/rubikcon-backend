@@ -88,6 +88,10 @@ async function main() {
 
   app.use(session(sessionConfig));
 
+  app.get('/', (req, res) => {
+  res.json({ message: 'Welcome to the DevByte Community API 🚀' });
+});
+
   app.use((req, res, next) => {
     const start = Date.now();
     const path = req.path;

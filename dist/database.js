@@ -52,6 +52,7 @@ if (!process.env.DATABASE_URL) {
 }
 // Create the connection
 const connectionString = process.env.DATABASE_URL;
+console.log(connectionString);
 const client = (0, postgres_1.default)(connectionString, {
     prepare: false,
     max: 10,
