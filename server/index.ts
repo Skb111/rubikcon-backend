@@ -9,6 +9,7 @@ import { RedisStore } from "connect-redis";
 import { registerRoutes } from "./routes";
 import { log } from "./vite";
 // import { setupVite, serveStatic, log } from "./vite";
+import { storage } from "./storage-db";
 
 // Augment the Express Request type to include our custom rawBody property
 declare global {
@@ -18,6 +19,16 @@ declare global {
     }
   }
 }
+
+
+console.log("NODE_ENV =", process.env.NODE_ENV);
+console.log("Storage in use:", storage.constructor.name);
+
+(async () => {
+  const games = await storage.getGames();
+  console.log("Initial games:", games);
+})();
+
 
 async function main() {
   const app = express();
@@ -88,9 +99,9 @@ async function main() {
 
   app.use(session(sessionConfig));
 
-  app.get('/', (req, res) => {
-  res.json({ message: 'Welcome to the DevByte Community API 🚀' });
-});
+//   app.get('/', (req, res) => {
+//   res.json({ message: 'Welcome to the DevByte Community API 🚀' });
+// });
 
   app.use((req, res, next) => {
     const start = Date.now();

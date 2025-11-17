@@ -5,11 +5,11 @@
   "scripts": {
     "build": "tsc",
     "start": "node dist/server/index.js",
+    "dev": "nodemon --exec ts-node server/index.ts",
     "start:dev": "nodemon --exec ts-node server/index.ts",
     "db:push": "drizzle-kit push",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate"
-
   },
   "author": "",
   "license": "ISC",
