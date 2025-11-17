@@ -1,3 +1,3 @@
 # rubikcon-backend
 
-##Welcome 
+##Welcome to the game 
